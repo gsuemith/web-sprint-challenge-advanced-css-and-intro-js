@@ -364,7 +364,7 @@ function getHTML(data){
   for(const index in data){
     let html = `<div id="artist">
     <div class="image">
-        <img src="https://picsum.photos/300/300"/>
+        <img src="assets/${data[index].name.split(" ").join("-")}.jpg"/>
     </div>
     <div class = "name">
        <a href="${data[index].wikipedia}"> ${data[index].name}</a>
