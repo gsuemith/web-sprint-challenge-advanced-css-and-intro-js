@@ -134,3 +134,44 @@ button:hover{
 .artist img{
     width:100%;
 }
+
+/* Mobile Media Styles - web40 sprint contribution*/
+@media(max-width: 500px){
+    body{
+        font-size: 1em;
+        width: 100vw;
+    }
+    nav a{
+        font-size: 1.3em;
+        padding: 0 1em;
+    }
+    .title-container div h1{
+      font-size: 3em;
+    }
+    .title-container div{
+        width: 100vw;
+        height: 40vh;
+        margin: 2em 0;
+        padding: 0;
+        background-size: cover;
+    }
+    .artists-container{
+        flex-wrap:wrap;
+        width: 80%;
+    }
+
+    .artist {
+        width:70%;
+        text-align:center;
+    }
+
+    .artist img {
+        margin: 1em auto;
+        height: 36%;
+        width: 77%;
+    }
+
+    .artist a {
+        font-size: 1.5em;
+    }
+}
