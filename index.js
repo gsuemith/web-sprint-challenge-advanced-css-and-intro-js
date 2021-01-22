@@ -273,10 +273,11 @@ log(get20s(artists));
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/){
+function removeArtist(artists, index){
    /*Your Code Here*/
+   artists.splice(index, 1);
+   return artists.length;
 }
-   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -294,8 +295,18 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/){
+function addArtist(artists){
     /*Your Code Here*/
+    const me = { 
+      id: 20,
+      name: "Garrick Suemmith", 
+      years: "1988 - current day",
+      genre: "Web Design", 
+      nationality: "American",
+      bio: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+    }  
+    artists.push(me);
+    return artists;
   }
 
   
@@ -307,8 +318,17 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
+function lotsOfArt(artists){
   /*Your Code Here*/
+  const proliferous = [];
+
+  for(let i = 0; i < artists.length; i++){
+    if (artists[i].paintings > 100){
+      proliferous.push(artists[i].name);
+    }
+  }
+
+  return proliferous;
 }
 
 
@@ -336,20 +356,44 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML(/* Code here */){
+function getHTML(data){
 
-    /* Code here */
+  /* Code here */
+  
 
+  for(const index in data){
+    let html = `<div id="artist">
+    <div class="image">
+        <img src="https://picsum.photos/300/300"/>
+    </div>
+    <div class = "name">
+       <a href="${data[index].wikipedia}"> ${data[index].name}</a>
+    </div>
+    <div class = "bio">${data[index].bio}</div>
+    </div>`;
+    console.log(html);
   }
+  
+  
+}
 
+getHTML(artists);
 
 /* 💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪
 Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
 
-function randomize(/* Code here */){
+function randomize(data){
 
     /* Code here */
+    const random = [];
 
+    
+    while(data.length > 0){                               // while items still in array
+      i_random = Math.floor(Math.random() * data.length); // generate random index
+      random.push(data.splice(i_random, 1));              // remove random object and put in new array
+    }
+
+    return random;
   }
 
 
